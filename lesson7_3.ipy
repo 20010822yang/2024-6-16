@@ -1,0 +1,31 @@
+import random
+
+def BINGO_GAMING():
+    min = 1
+    max = 100
+    count = 0
+    random_number = random.randint(min,max)
+    while True:
+        print(f"猜數字範圍{min} ~ {max}")
+        try:
+            number = int(input(f"這是第{count + 1}次猜數字"))
+        except:
+            print("格式錯誤")
+            continue
+        count += 1
+        if number == random_number:
+            print("命中準確數字")
+            break
+        elif number > random_number:
+            max = number - 1
+        elif number < random_number:
+            min = number + 1
+    print(f"遊戲結束,答案是{random_number},你猜了第{count}次")
+while (True):
+    BINGO_GAMING()  
+    again = input("是否再來一局(yes或no)")
+    if again == yes:
+        continue
+    elif again == no:
+        break
+print('遊戲結束')
